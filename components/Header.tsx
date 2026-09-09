@@ -47,7 +47,11 @@ export default function Header() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-ink/80 transition-colors hover:text-brand"
+              className={`text-sm font-medium transition-colors ${
+                scrolled || open
+                  ? "text-ink/80 hover:text-brand"
+                  : "text-white/90 hover:text-white"
+              }`}
             >
               {item.label}
             </a>
@@ -63,7 +67,9 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="relative z-50 flex h-10 w-10 items-center justify-center rounded-lg text-ink md:hidden"
+          className={`relative z-50 flex h-10 w-10 items-center justify-center rounded-lg transition-colors md:hidden ${
+            scrolled || open ? "text-ink" : "text-white"
+          }`}
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
         >

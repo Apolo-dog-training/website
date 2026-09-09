@@ -83,7 +83,7 @@ export default function Footer() {
           </p>
           <p>
             Site créé par{" "}
-            <span className="font-semibold text-white">STUDIO FEDERICO</span>
+            <span className="font-semibold text-white">STUDIO APOLO</span>
           </p>
         </div>
       </div>
