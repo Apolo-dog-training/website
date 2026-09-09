@@ -1,0 +1,92 @@
+import Image from "next/image";
+import { nav, site } from "@/lib/site";
+import { InstagramIcon, MailIcon, PhoneIcon } from "./icons";
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="bg-ink text-white/70">
+      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-3">
+        <div>
+          <Image
+            src="/logo/logo-white.png"
+            alt={site.name}
+            width={160}
+            height={56}
+            className="h-12 w-auto"
+          />
+          <p className="mt-4 max-w-xs text-sm leading-relaxed">
+            {site.role} à {site.area}. {site.slogan}
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+            Navigation
+          </h3>
+          <ul className="mt-4 space-y-2 text-sm">
+            {nav.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="transition-colors hover:text-brand"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wider text-white">
+            Contact
+          </h3>
+          <ul className="mt-4 space-y-3 text-sm">
+            <li>
+              <a
+                href={`tel:${site.phoneIntl}`}
+                className="flex items-center gap-2 transition-colors hover:text-brand"
+              >
+                <PhoneIcon className="h-4 w-4" />
+                {site.phone}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`mailto:${site.email}`}
+                className="flex items-center gap-2 transition-colors hover:text-brand"
+              >
+                <MailIcon className="h-4 w-4" />
+                {site.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={site.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 transition-colors hover:text-brand"
+              >
+                <InstagramIcon className="h-4 w-4" />
+                {site.instagram.handle}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-5 py-6 text-xs sm:flex-row">
+          <p>
+            © {year} {site.name}. Tous droits réservés.
+          </p>
+          <p>
+            Site créé par{" "}
+            <span className="font-semibold text-white">STUDIO FEDERICO</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}

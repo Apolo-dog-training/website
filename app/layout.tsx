@@ -1,0 +1,67 @@
+import type { Metadata } from "next";
+import { Poppins } from "next/font/google";
+import "./globals.css";
+import { site } from "@/lib/site";
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const description = `${site.role} à ${site.area}. ${site.tagline} Éducation, comportement, mantrailing, pistage, nosework et jeux de chasse.`;
+
+export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.name} — Éducateur & comportementaliste canin à Bordeaux`,
+    template: `%s | ${site.name}`,
+  },
+  description,
+  keywords: [
+    "éducateur canin Bordeaux",
+    "comportementaliste canin Bordeaux",
+    "dressage chien Bordeaux",
+    "mantrailing",
+    "pistage chien",
+    "nosework",
+    "balade éducative chien",
+    "Apolo Dog Training",
+  ],
+  authors: [{ name: site.name }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: site.url,
+    siteName: site.name,
+    title: `${site.name} — Éducateur & comportementaliste canin à Bordeaux`,
+    description,
+    images: [{ url: "/photos/hero.jpg", width: 1200, height: 630, alt: site.name }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — Éducateur & comportementaliste canin à Bordeaux`,
+    description,
+    images: ["/photos/hero.jpg"],
+  },
+  icons: {
+    icon: "/logo/picto.png",
+    apple: "/logo/picto.png",
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="fr" className={`${poppins.variable} h-full`}>
+      <body className="min-h-full flex flex-col bg-white text-ink">
+        {children}
+      </body>
+    </html>
+  );
+}

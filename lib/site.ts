@@ -1,0 +1,95 @@
+export const site = {
+  name: "Apolo Dog Training",
+  trainer: "Frédéric",
+  role: "Entraîneur, éducateur & comportementaliste canin",
+  slogan: "Connaissez-vous le super pouvoir de votre chien ?",
+  tagline:
+    "J'accompagne vos chiens avec bienveillance, expertise & engagement.",
+  area: "Bordeaux et alentours",
+  areaLong: "Bordeaux et alentours",
+  url: "https://apolodogtraining.com",
+  email: "apolo.dogtraining@gmail.com",
+  phone: "06 23 80 76 59",
+  phoneIntl: "+33623807659",
+  instagram: {
+    handle: "@apolo.dogtraining",
+    url: "https://www.instagram.com/apolo.dogtraining",
+  },
+  google: {
+    // Lien vers la fiche Google (bouton « voir tous les avis »)
+    url: "https://www.google.com/search?q=Apolo+Dog+Training+Bordeaux",
+    rating: 5,
+    count: 30,
+  },
+} as const;
+
+export type Service = {
+  title: string;
+  tag?: string;
+  description: string;
+  icon:
+    | "obedience"
+    | "behaviour"
+    | "walk"
+    | "mantrailing"
+    | "tracking"
+    | "nosework"
+    | "hunting";
+};
+
+export const services: Service[] = [
+  {
+    title: "Éducation & obéissance fonctionnelle",
+    description:
+      "Les bases d'une relation sereine au quotidien : rappel, marche en laisse, autocontrôle et gestion des situations de la vie de tous les jours.",
+    icon: "obedience",
+  },
+  {
+    title: "Étude de comportement",
+    description:
+      "Analyse fine des comportements gênants (peurs, réactivité, agressivité, anxiété) pour comprendre leur origine et mettre en place un vrai plan d'action.",
+    icon: "behaviour",
+  },
+  {
+    title: "Balades éducatives & collectives",
+    description:
+      "Apprendre en s'amusant, au contact d'autres chiens : socialisation, communication canine et travail en conditions réelles, en pleine nature.",
+    icon: "walk",
+  },
+  {
+    title: "Mantrailing (recherche de personnes)",
+    tag: "Mantrailing",
+    description:
+      "Votre chien suit une piste odorante pour retrouver une personne. Une activité qui canalise l'énergie et renforce votre complicité.",
+    icon: "mantrailing",
+  },
+  {
+    title: "Tracking (pistage)",
+    tag: "Tracking",
+    description:
+      "Le pistage sportif : suivre une trace au sol, marquer les objets, développer la concentration et l'autonomie de votre chien.",
+    icon: "tracking",
+  },
+  {
+    title: "Nosework (détection sportive)",
+    tag: "Nosework",
+    description:
+      "Le sport du flair : votre chien apprend à détecter et signaler des odeurs cibles. Idéal pour la confiance en soi et la stimulation mentale.",
+    icon: "nosework",
+  },
+  {
+    title: "Hunting games (jeux de chasse)",
+    tag: "Hunting games",
+    description:
+      "Des jeux qui répondent aux instincts naturels du chien de façon canalisée et sécurisée, pour un chien épanoui et équilibré.",
+    icon: "hunting",
+  },
+];
+
+export const nav = [
+  { label: "Accueil", href: "#accueil" },
+  { label: "À propos", href: "#a-propos" },
+  { label: "Services", href: "#services" },
+  { label: "Avis", href: "#avis" },
+  { label: "Contact", href: "#contact" },
+];

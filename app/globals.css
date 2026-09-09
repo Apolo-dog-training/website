@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #36a9e1;
+  --color-brand-dark: #1f8ec4;
+  --color-brand-darker: #12729f;
+  --color-brand-light: #e8f6fd;
+  --color-brand-tint: #f4fbfe;
+  --color-ink: #14242e;
+  --color-ink-soft: #46606d;
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 10px 40px -12px rgba(20, 36, 46, 0.18);
+  --shadow-brand: 0 14px 40px -10px rgba(54, 169, 225, 0.45);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #14242e;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* garde-fou anti-débordement horizontal mobile */
+}
+
+/* Hauteur plein écran avec repli pour navigateurs sans unité svh */
+.min-h-screen-mobile {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+/* Reveal-on-scroll animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
